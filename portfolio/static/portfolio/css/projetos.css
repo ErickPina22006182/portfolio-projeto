@@ -1,0 +1,43 @@
+.projetos{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 20px;
+}
+
+.projetos > div {
+    display: flex;
+    background-color: #ececec;
+    justify-content: space-around;
+    border-radius: 20px;
+    box-shadow: 5px 5px 15px #dcdcdc;
+    margin: 20px;
+}
+.projetos > div:nth-child(1) > img{
+    border-radius: 15px 0 0 15px;
+    width: 200px;
+    height: 200px;
+}
+
+.projetos > div:nth-child(2) > img{
+    border-radius: 15px 0 0 15px;
+    width: 200px;
+    height: 200px;
+}
+
+.projetos > div:nth-child(3) > img{
+    border-radius: 15px 0 0 15px;
+    width: 250px;
+    height: 200px;
+}
+
+.projetos div div:last-child {
+    width: 150px;
+    background-color: white;
+    padding: 40px;
+    border-radius: 0 20px 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

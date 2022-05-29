@@ -1,0 +1,32 @@
+.perguntas{
+    background-color: #bdbdbd;
+    opacity: 0.85;
+    border-radius: 20px;
+    padding: 50px;
+}
+.tituloQuizz{
+    color: white;
+    opacity: 1;
+    text-align: center;
+}
+
+.button_save_quizz {
+  background-color: #000000;
+  border: none;
+  color: white;
+  padding: 13px 20px;
+  text-align: center;
+  font-size: 16px;
+  margin: 4px 2px;
+  opacity: 0.6;
+  transition: 0.3s;
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.button_save_quizz:hover {opacity: 1}
+
+.imagemQuizz{
+    text-align: center;
+}

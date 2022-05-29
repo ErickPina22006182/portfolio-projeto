@@ -1,0 +1,37 @@
+{% extends 'portfolio/layout.html' %}
+
+{% block main %}
+    <style>
+        main{
+            {% load static %}
+            background-image: url("{% static 'portfolio/images/blog.jpg' %}");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            background-attachment: fixed;
+
+        }
+    </style>
+    <div class="postsBlog">
+        {% for post in posts %}
+            <div class="postBox">
+                <div class="superiorTitulo">
+                    <h3> {{ post.titulo }} </h3>
+                </div>
+
+                <div class="centro">
+                    <p> {{ post.descricao }} </p>
+                </div>
+
+                <div class="inferior_autor">
+                    <p>({{ post.data.day }}/{{ post.data.month }}) - {{ post.autor }}</p>
+                </div>
+                <div class="inferior_edit">
+                    <a href="{% url 'portfolio:edit_post' post.id %}" class="button_edit">Editar</a>
+                </div>
+
+            </div>
+       {% endfor %}
+       <a href="{% url 'portfolio:new_post' %}" class="button_new">Novo Post</a>
+    </div>
+{% endblock %}

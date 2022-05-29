@@ -1,0 +1,134 @@
+{% extends 'portfolio/layout.html' %}
+
+
+{% block main %}
+
+    <style>
+        main{
+            {% load static %}
+            background-image: url("{% static 'portfolio/images/imgQuizz.jpg' %}");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+        header{
+            z-index: 9999;
+        }
+    </style>
+
+    <h1 class="tituloQuizz">Quizz Programação Web</h1>
+    <fieldset class="perguntas">
+
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <section class="utilizador">
+                <h2>Para começar, coloque o seu nome:</h2>
+                <br>
+                <label>
+                    <input type="text" name="name" placeholder="Insira seu nome">
+                </label>
+            </section>
+
+            <br>
+            <br>
+
+            <section class="pergunta1">
+                <h2>1 - Quais operadores podem ser utilizados em python?</h2>
+                <br>
+                <input type="checkbox" name="p1" id="a" value="--">
+                <label for="a" id="a_text">--</label>
+
+                <input type="checkbox" name="p1" id="b" value="%=">
+                <label for="b" id="b_text">%=</label>
+
+                <input type="checkbox" name="p1" id="c" value="//=">
+                <label for="c" id="c_text">//=</label>
+
+                <input type="checkbox" name="p1" id="d" value="++">
+                <label for="d" id="d_text">++</label>
+
+                <input type="checkbox" name="p1" id="e" value="/=">
+                <label for="e" id="e_text">/=</label>
+            </section>
+
+            <br>
+            <br>
+
+            <section class="pergunta2">
+                <h2>2 - Qual o output:</h2>
+                <p><b>>> s = 'python' <br> >> s[-4: :-1]</b></p>
+                <br>
+                <label>
+                    <input type="text" name="p2">
+                </label>
+            </section>
+
+            <br>
+            <br>
+
+            <section class="pergunta3">
+                <h2>3 - Qual o output:</h2>
+                <p><b> "bom dia".title()</b></p>
+
+                <br>
+
+                <input type="radio" name="p3" id="1" value="Bom_dia">
+                <label for="1" id="1_text">Bom dia</label>
+
+                <input type="radio" name="p3" id="2" value="Bom_Dia">
+                <label for="2" id="2_text">Bom Dia</label>
+
+                <input type="radio" name="p3" id="3" value="bom_dia">
+                <label for="3" id="3_text">bom dia</label>
+
+                <input type="radio" name="p3" id="4" value="BOM_DIA">
+                <label for="4" id="4_text">BOM DIA</label>
+
+                <input type="radio" name="p3" id="5" value="Dia_bom">
+                <label for="5" id="5_text">Dia bom</label>
+            </section>
+
+            <br>
+            <br>
+
+            <section class="pergunta3">
+                <h2>4 - Qual a definição de dicionário em python?</h2>
+
+                <br>
+
+                <div>
+                    <input type="radio" name="p4" id="r1" value="r1q4">
+                    <label for="r1" id="r1_text">Dicionário é um conjunto não ordenado de itens chave:valor</label>
+                </div>
+
+                <div>
+                    <input type="radio" name="p4" id="r2" value="r2q4">
+                    <label for="r2" id="r2_text">Dicionários são sequências ordenadas e indexáveis como as listas, mas imutáveis</label>
+                </div>
+
+                <div>
+                    <input type="radio" name="p4" id="r3" value="r3q4">
+                    <label for="r3" id="r3_text">Dicionário é uma coleção não ordenada de elementos sem duplicados</label>
+                </div>
+
+                <div>
+                    <input type="radio" name="p4" id="r4" value="r3q4">
+                    <label for="r4" id="r4_text">Nenhuma das respostas anteriores</label>
+                </div>
+            </section>
+
+            <br>
+
+            <input type="submit" value="Gravar" class="button_save_quizz">
+
+            {% load static %}
+        </form>
+    </fieldset>
+
+    <br>
+    <br>
+
+    <p class="imagemQuizz"><img src="{% static 'portfolio/images/graf.png' %}" alt=""></p>
+
+{% endblock %}

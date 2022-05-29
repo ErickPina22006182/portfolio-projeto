@@ -1,0 +1,12 @@
+{% extends 'portfolio/layout.html' %}
+
+{% block main %}
+    <h1>Novo Post</h1>
+    <form action="" method="POST" autocomplete="off">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <a href="{% url 'portfolio:blog' %}" class="button_cancel">Cancelar</a>
+        <input type="submit" value="Gravar" class="button_save">
+    </form>
+{% endblock %}

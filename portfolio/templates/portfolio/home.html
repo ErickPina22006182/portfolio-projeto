@@ -1,0 +1,21 @@
+{% extends 'portfolio/layout.html' %}
+{% block main %}
+    <style>
+        main{
+            padding: 0;
+        }
+    </style>
+    <section class="hero_image">
+        {% load static %}
+        <video src='{% static 'portfolio/images/hero.mp4' %}' muted autoplay loop></video>
+        <div class="escurecer"></div>
+        <div class="div_video">
+            <p class="fotoPerfiltxt"><img class="fotoPerfil" src="{% static 'portfolio/images/perfil.jpg' %}" alt=""></p>
+            <br>
+            <br>
+                <h2 class="textoHome">Bem-Vindo ao meu portfólio!</h2>
+                <br>
+                <h2 class="textoHome">  Meu nome é Erick Marçal de Pina, tenho 19 anos e sou estudante da Universidade Lusófona no curso de Engenharia Informática!</h2>
+        </div>
+    </section>
+{% endblock %}

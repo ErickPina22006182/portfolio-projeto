@@ -1,0 +1,22 @@
+
+.cadeiras{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: center;
+    margin: 20px;
+    padding: 50px;
+}
+
+.cadeiras div {
+    justify-content: center;
+    background-color: #ececec;
+    border-radius: 20px;
+    box-shadow: 5px 5px 15px #dcdcdc;
+    margin: 10px;
+    padding: 10px 20px;
+    width: 300px;
+    height: 350px;
+}
+
+
