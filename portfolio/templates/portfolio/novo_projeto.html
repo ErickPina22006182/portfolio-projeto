@@ -21,7 +21,7 @@
             padding-bottom: 2em;
         }
     </style>
-    <form action="" method="POST" autocomplete="off">
+    <form action="" method="POST" autocomplete="off" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}
 

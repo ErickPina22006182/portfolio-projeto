@@ -32,7 +32,7 @@ class Pessoa(models.Model):
 class Projeto(models.Model):
     titulo = models.CharField(max_length=30)
     descricao = models.TextField(blank=True, max_length=400)
-    imagem = models.ImageField(upload_to="pictures/", blank=True)
+    imagem = models.ImageField(upload_to="pictures/")
 
     def __str__(self):
         return f"{self.titulo}"
