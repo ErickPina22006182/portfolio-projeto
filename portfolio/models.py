@@ -31,7 +31,7 @@ class Pessoa(models.Model):
 
 class Projeto(models.Model):
     titulo = models.CharField(max_length=30)
-    descricao = models.TextField(blank=True, max_length=400)
+    descricao = models.TextField(max_length=400)
     imagem = models.ImageField(upload_to="pictures/")
 
     def __str__(self):
@@ -41,12 +41,12 @@ class Projeto(models.Model):
 class Cadeira(models.Model):
     nome = models.CharField(max_length=50)
     ano = models.IntegerField(default=1)
-    anoLetivo = models.CharField(max_length=10, blank=True)
+    anoLetivo = models.CharField(max_length=10)
     semestre = models.IntegerField(default=1)
     ects = models.IntegerField(default=1)
     professor = models.ForeignKey(Pessoa, on_delete=models.CASCADE, default="")
     rank = models.IntegerField(default=1)
-    descricao = models.TextField(blank=True)
+    descricao = models.TextField(max_length=500)
     link = models.URLField(max_length=200, blank=True)
 
     def __str__(self):
