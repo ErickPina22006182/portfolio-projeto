@@ -1,3 +1,8 @@
+.novo_post{
+    text-align: center;
+
+}
+
 .postsBlog{
     display: flex;
     flex-flow: row wrap;

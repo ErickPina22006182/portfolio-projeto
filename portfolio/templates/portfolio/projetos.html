@@ -1,4 +1,3 @@
-<body>
 {% extends 'portfolio/layout.html' %}
 {% block main %}
 
@@ -13,43 +12,28 @@
         }
     </style>
 	<div class="projetos">
-        <div>
-            {% load static %}
-                <img src="{% static 'portfolio/images/xadrez.png' %}" alt="">
-            <pre style="text-align: left">
-                                <b>Jogo de Xadrez</b>
+        {% for projeto in projetos %}
+            <div class="projetosBox">
+                <div class="imagemProjeto">
+                    <img src="{{ projeto.imagem.url }}" alt="">
+                </div>
+                <div class="textoProjeto">
+                    <p><b>{{ projeto.titulo }}</b></p>
+                    <br>
+                    <p id="descricaoProjeto">{{ projeto.descricao }}</p>
+                </div>
+                {% if request.user.is_authenticated %}
+                    <div class="edita_projeto">
+                        <b><a href="{% url 'portfolio:edita_projeto' projeto.id %}" class="button_edit">Edit</a></b>
+                    </div>
+                {% endif %}
 
-
- <b>- Cadeira: </b>Fundamentos de Programação
- <b>- Ano/Semestre: </b>1° Ano / 1° Semestre
- <b>- Desenvolvendores: </b>Erick Pina; Bernardo Ramalho <b> </b>
-            </pre>
-        </div>
-        <div>
-            {% load static %}
-                <img src="{% static 'portfolio/images/greatGame.png' %}" alt="">
-            <pre style="text-align: left">
-                        <b>Deisi Great Game</b>
-
-
- <b>- Cadeira: </b>Linguagens de Programação II
- <b>- Ano/Semestre: </b>2° Ano / 1° Semestre
- <b>- Desenvolvendores: </b>Erick Pina; Pedro Moreira <b> </b>
-            </pre>
-        </div>
-        <div>
-            {% load static %}
-                <img src="{% static 'portfolio/images/arduino.jpg' %}" alt="">
-            <pre style="text-align: left">
-                                <b>Sistema de Rega Automática (Arduino)</b>
-
-
- <b>- Cadeira: </b>Arqueitetura Avançada de Computadores
- <b>- Ano/Semestre: </b>2° Ano / 1° Semestre
- <b>- Desenvolvendores: </b>Erick Pina; João YP; Rafael Rodrigues; Robert Cachapa <b> </b>
-            </pre>
-        </div>
+            </div>
+        {% endfor %}
     </div>
+    {% if request.user.is_authenticated %}
+        <div class="add_projeto">
+            <a href="{% url 'portfolio:novo_projeto' %}" class="button_new">Adicionar Projeto</a>
+        </div>
+    {% endif %}
 {% endblock %}
-
-</body>

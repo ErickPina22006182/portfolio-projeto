@@ -10,66 +10,75 @@
            background-attachment: fixed;
         }
     </style>
+
     <div class="cadeiras">
-        <div>
-            <h3>Linguagens de Programação I (2020/2021)</h3>
-            <br>
-            <p>
-                -Frequentei esta cadeira no 2° semestre do 1° ano da faculdade!
-            </p>
-            <br>
-            <p>
-                -Durante as aulas tive a oportunidade de aprender a liguagem  de programação C.
-            </p>
-            <br>
-            <p><b> -Esta cadeira vale 5.0 ECTS.</b></p>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <p style="text-align: center">
-                ⭐ ⭐ ⭐ ⭐ ⭐
-            </p>
-        </div>
-        <div>
-            <h3>Arquitetura Avançada de Computadores (2021/2022)</h3>
-            <br>
-            <p>
-                -Frequentei esta cadeira no 1° semestre do 2° ano da faculdade!
-            </p>
-            <br>
-            <p>
-                -Durante as aulas tive a oportunidade de aprender a liguagem  de programação C++ e o desenvolvimento de trabalhos utilizando um Arduino.
-            </p>
-            <br>
-            <p><b> -Esta cadeira vale 6.0 ECTS.</b></p>
-            <br>
-            <br>
-            <br>
-            <p style="text-align: center">
-                ⭐ ⭐ ⭐ ⭐
-            </p>
-        </div>
-        <div>
-            <h3>Computação Gráfica (2021/2022)</h3>
-            <br>
-            <p>
-                -Estou a realizar esta cadeira agora, durante o 2° semestre do 2° ano da faculdade!
-            </p>
-            <br>
-            <p>
-                -Durante as aulas estou a aprender sobre manipulação de imagens a partir da programação.
-            </p>
-            <br>
-            <p><b> Esta cadeira vale 6.0 ECTS.</b></p>
-            <br>
-            <br>
-            <br>
-            <br>
-            <p style="text-align: center">
-                ⭐ ⭐ ⭐ ⭐ ⭐
-            </p>
-        </div>
+        {% for cadeira in cadeiras %}
+            <div class="cadeiraBox">
+                <div class="Superior">
+                    <div class="tituloCadeira">
+                        <h3>{{ cadeira.nome }}</h3>
+                    </div>
+                    <div class="anoCadeira">
+                        <h3>({{ cadeira.anoLetivo }})</h3>
+                    </div>
+                    <div>
+                        {% if cadeira.rank == 1 %}
+                            <p style="text-align: center">
+                                ⭐
+                            </p>
+                        {% endif %}
+                        {% if cadeira.rank == 2 %}
+                            <p style="text-align: center">
+                                ⭐ ⭐
+                            </p>
+                        {% endif %}
+                        {% if cadeira.rank == 3 %}
+                            <p style="text-align: center">
+                                ⭐ ⭐ ⭐
+                            </p>
+                        {% endif %}
+                        {% if cadeira.rank == 4 %}
+                            <p style="text-align: center">
+                                ⭐ ⭐ ⭐ ⭐
+                            </p>
+                        {% endif %}
+                        {% if cadeira.rank == 5 %}
+                            <p style="text-align: center">
+                                ⭐ ⭐ ⭐ ⭐ ⭐
+                            </p>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <br>
+
+                <div class="centroSuperiorCadeiraBox">
+                    <p><b>Ano:</b> {{ cadeira.ano }}°</p>
+                    <p><b>Semestre:</b> {{ cadeira.semestre }}°</p>
+                    <p><b>Professor:</b> <a href="{{ cadeira.professor.linkedin }}">{{ cadeira.professor.nome }}</a></p>
+                    <p><b>Ects:</b> {{ cadeira.ects }}.0</p>
+                </div>
+
+                <br>
+
+                <div class="centroInferiorCadeiraBox">
+                    <p>{{ cadeira.descricao }}</p>
+                </div>
+                <div class="linkCadeira">
+                    <b><a href="{{ cadeira.linkedinPaginaCadeira }}" style="color: black" id="link_cadeira_id">Página da Cadeira</a></b>
+                </div>
+                <div class="editCadeira">
+                    {% if request.user.is_authenticated %}
+                        <b><a href="{% url 'portfolio:edita_cadeira' cadeira.id %}" id="edit_cadeira_id">Edit</a></b>
+                    {% endif %}
+                </div>
+            </div>
+       {% endfor %}
     </div>
+
+    {% if request.user.is_authenticated %}
+        <div class="add_cadeira">
+            <a href="{% url 'portfolio:nova_cadeira' %}" class="button_new">Adicionar Cadeira</a>
+        </div>
+    {% endif %}
 {% endblock %}

@@ -32,4 +32,10 @@ urlpatterns = [
     path('quizz', views.quizz, name="quizz"),
     path('login', views.login_view, name="login"),
     path('logout', views.logout_view, name="logout"),
+    path('nova_cadeira', views.nova_cadeira_view, name="nova_cadeira"),
+    path('edita_cadeira/<int:cadeira_id>', views.edita_cadeira_view, name="edita_cadeira"),
+    path('apaga_cadeira/<int:cadeira_id>', views.apaga_cadeira_view, name="apaga_cadeira"),
+    path('novo_projeto', views.novo_projeto_view, name="novo_projeto"),
+    path('edita_projeto/<int:projeto_id>', views.edita_projeto_view, name="edita_projeto"),
+    path('apaga_projeto/<int:projeto_id>', views.apaga_projeto_view, name="apaga_projeto"),
 ]

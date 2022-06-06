@@ -12,6 +12,7 @@
 
         }
     </style>
+    <div class="novo_post"> <a href="{% url 'portfolio:new_post' %}" class="button_new">Adicionar Post</a> </div>
     <div class="postsBlog">
         {% for post in posts %}
             <div class="postBox">
@@ -32,6 +33,5 @@
 
             </div>
        {% endfor %}
-       <a href="{% url 'portfolio:new_post' %}" class="button_new">Novo Post</a>
     </div>
 {% endblock %}

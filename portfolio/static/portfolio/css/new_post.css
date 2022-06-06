@@ -7,6 +7,11 @@ form p{
     padding: 10px;
 }
 
+.botoesNovoPost{
+  width: 100%;
+  text-align: center;
+}
+
 
 .button_cancel {
   background-color: #d00000;

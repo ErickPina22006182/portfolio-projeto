@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.urls import reverse
-from .models import Post, PontuacaoQuizz
-from .forms import PostForm
+from .models import Post, PontuacaoQuizz, Cadeira, Projeto, Pessoa, Picture
+from .forms import PostForm, CadeiraForm, ProjetoForm
 from django.http import HttpResponse, HttpResponseRedirect
 from matplotlib import pyplot as plt
 import matplotlib
@@ -28,11 +28,69 @@ def formacao_view(request):
 
 
 def projetos_view(request):
-    return render(request, 'portfolio/projetos.html')
+    context = {'projetos': Projeto.objects.all()}
+    return render(request, 'portfolio/projetos.html', context)
+
+
+def novo_projeto_view(request):
+    form = ProjetoForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect(reverse('portfolio:projetos'))
+
+    context = {'form': form}
+
+    return render(request, 'portfolio/novo_projeto.html', context)
+
+
+def edita_projeto_view(request, projeto_id):
+    projeto = Projeto.objects.get(id=projeto_id)
+    form = ProjetoForm(request.POST or None, instance=projeto)
+
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect(reverse('portfolio:projetos'))
+
+    context = {'form': form, 'projeto_id': projeto_id}
+    return render(request, 'portfolio/edita_projeto.html', context)
+
+
+def apaga_projeto_view(request, projeto_id):
+    Projeto.objects.get(id=projeto_id).delete()
+    return HttpResponseRedirect(reverse('portfolio:projetos'))
 
 
 def licenciatura_view(request):
-    return render(request, 'portfolio/licenciatura.html')
+    context = {'cadeiras': Cadeira.objects.all()}
+    return render(request, 'portfolio/licenciatura.html', context)
+
+
+def nova_cadeira_view(request):
+    form = CadeiraForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect(reverse('portfolio:licenciatura'))
+
+    context = {'form': form}
+
+    return render(request, 'portfolio/nova_cadeira.html', context)
+
+
+def edita_cadeira_view(request, cadeira_id):
+    cadeira = Cadeira.objects.get(id=cadeira_id)
+    form = CadeiraForm(request.POST or None, instance=cadeira)
+
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect(reverse('portfolio:licenciatura'))
+
+    context = {'form': form, 'cadeira_id': cadeira_id}
+    return render(request, 'portfolio/edita_cadeira.html', context)
+
+
+def apaga_cadeira_view(request, cadeira_id):
+    Cadeira.objects.get(id=cadeira_id).delete()
+    return HttpResponseRedirect(reverse('portfolio:licenciatura'))
 
 
 def blog_page_view(request):

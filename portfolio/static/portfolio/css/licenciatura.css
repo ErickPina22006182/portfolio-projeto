@@ -1,22 +1,200 @@
-
 .cadeiras{
     display: flex;
     flex-flow: row wrap;
     justify-content: space-around;
     align-items: center;
-    margin: 20px;
-    padding: 50px;
-}
-
-.cadeiras div {
-    justify-content: center;
-    background-color: #ececec;
-    border-radius: 20px;
-    box-shadow: 5px 5px 15px #dcdcdc;
     margin: 10px;
-    padding: 10px 20px;
-    width: 300px;
-    height: 350px;
 }
 
+.cadeiraBox{
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px #dcdcdc;
+    padding: 20px;
+    margin: 20px;
+    width: 400px;
+    height: 450px;
+}
 
+.superior{
+    width: 100%;
+    height: 20%;
+    float: top;
+}
+
+.superior p{
+    padding: 10px;
+}
+
+.tituloCadeira{
+    text-align: center;
+    word-break: break-word;
+}
+
+.anoCadeira{
+    text-align: center;
+    word-break: break-word;
+}
+
+.centroSuperiorCadeiraBox{
+    width:100%;
+    height: 20%;
+    word-break: break-word;
+}
+
+.centroInferiorCadeiraBox{
+    width:100%;
+    height: 50%;
+    text-align: center;
+    word-break: break-word;
+}
+
+.linkCadeira{
+    height: 10%;
+    width: 50%;
+    float: left;
+}
+
+.linkCadeira p{
+    margin-right: 100px;
+}
+
+.editCadeira{
+    height: 10%;
+    width: 100%;
+    text-align: right;
+}
+
+#edit_cadeira_id{
+    color: black;
+}
+
+#id_nome{
+    width: 15em;
+    display: flex;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.4);
+    border: 2px solid white;
+    border-radius: 16px;
+    padding: 10px 1em 5px 1em;
+    text-align: left;
+    color: #ffffff;
+    margin-top: 0.5em;
+    font-size:large;
+}
+
+#id_ano{
+    width: 10em;
+    display: flex;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.4);
+    border: 2px solid white;
+    border-radius: 16px;
+    padding: 10px 1em 5px 1em;
+    text-align: left;
+    color: #ffffff;
+    margin-top: 0.5em;
+    font-size:large;
+}
+
+#id_anoLetivo{
+    width: 15em;
+    display: flex;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.4);
+    border: 2px solid white;
+    border-radius: 16px;
+    padding: 10px 1em 5px 1em;
+    text-align: left;
+    color: #ffffff;
+    margin-top: 0.5em;
+    font-size:large;
+}
+
+#id_semestre{
+    width: 10em;
+    display: flex;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.4);
+    border: 2px solid white;
+    border-radius: 16px;
+    padding: 10px 1em 5px 1em;
+    text-align: left;
+    color: #ffffff;
+    margin-top: 0.5em;
+    font-size:large;
+}
+
+#id_ects{
+    width: 10em;
+    display: flex;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.4);
+    border: 2px solid white;
+    border-radius: 16px;
+    padding: 10px 1em 5px 1em;
+    text-align: left;
+    color: #ffffff;
+    margin-top: 0.5em;
+    font-size:large;
+}
+
+#id_rank{
+    width: 10em;
+    display: flex;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.4);
+    border: 2px solid white;
+    border-radius: 16px;
+    padding: 10px 1em 5px 1em;
+    text-align: left;
+    color: #ffffff;
+    margin-top: 0.5em;
+    font-size:large;
+}
+
+#id_professor{
+    width: 10em;
+    display: flex;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.4);
+    border: 2px solid white;
+    border-radius: 16px;
+    padding: 10px 1em 5px 1em;
+    text-align: left;
+    color: #ffffff;
+    margin-top: 0.5em;
+    font-size:large;
+}
+
+#id_descricao{
+    width: 45em;
+    display: flex;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.4);
+    border: 2px solid white;
+    border-radius: 16px;
+    padding: 10px 1em 5px 1em;
+    text-align: left;
+    color: #ffffff;
+    margin-top: 0.5em;
+    font-size:large;
+}
+
+#id_link{
+    width: 45em;
+    display: flex;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.4);
+    border: 2px solid white;
+    border-radius: 16px;
+    padding: 10px 1em 5px 1em;
+    text-align: left;
+    color: #ffffff;
+    margin-top: 0.5em;
+    font-size:large;
+}
+
+.add_cadeira{
+    text-align: center;
+}

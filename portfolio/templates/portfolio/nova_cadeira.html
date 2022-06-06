@@ -1,0 +1,34 @@
+{% extends 'portfolio/layout.html' %}
+
+{% block main %}
+    <style>
+        main{
+            {% load static %}
+            background-image: url("{% static 'portfolio/images/imgLicenciatura.jpg' %}");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            background-attachment: fixed;
+            color: white;
+            display: flex;
+            justify-content: center;
+            padding-top:3em;
+        }
+        label{
+            color:white;
+            font-family: 'Nunito', sans-serif;
+            font-size: 1.5em;
+            font-weight: 600;
+            padding-bottom: 2em;
+        }
+    </style>
+    <form action="" method="POST" autocomplete="off">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <div class="botoesNovoPost">
+            <a href="{% url 'portfolio:licenciatura' %}" class="button_cancel">Cancelar</a>
+            <input type="submit" value="Gravar" class="button_save">
+        </div>
+    </form>
+{% endblock %}
