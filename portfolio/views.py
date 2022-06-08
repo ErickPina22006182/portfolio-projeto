@@ -1,12 +1,17 @@
-from django.shortcuts import render
-from django.urls import reverse
-from .models import Post, PontuacaoQuizz, Cadeira, Projeto, Pessoa, Picture
-from .forms import PostForm, CadeiraForm, ProjetoForm
-from django.http import HttpResponse, HttpResponseRedirect
-from matplotlib import pyplot as plt
+import base64
+import io
+import urllib
+
 import matplotlib
 from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.decorators import login_required
+from django.http import HttpResponseRedirect
+from django.shortcuts import render
+from django.urls import reverse
+from matplotlib import pyplot as plt
+from urllib.parse import urlparse
+
+from .forms import PostForm, CadeiraForm, ProjetoForm
+from .models import Post, PontuacaoQuizz, Cadeira, Projeto
 
 matplotlib.use('Agg')
 
@@ -166,22 +171,33 @@ def quizz(request):
         p = pontuacao_quizz(request)
         r = PontuacaoQuizz(nome=n, pontuacao=p)
         r.save()
-    desenha_grafico_resultados(request)
-    return render(request, 'portfolio/quizz.html')
+    context = {
+        'data': desenha_grafico_resultados()
+    }
+    return render(request, 'portfolio/quizz.html', context)
 
 
-def desenha_grafico_resultados(request):
-    pontuacoes = PontuacaoQuizz.objects.all()
-    pontuacao_sorted = sorted(pontuacoes, key=lambda objeto: objeto.pontuacao, reverse=False)
-    listaNomes = []
-    listapontuacao = []
+def desenha_grafico_resultados():
+    pontuacoes = PontuacaoQuizz.objects.all().order_by('pontuacao')
 
-    for person in pontuacao_sorted:
-        listaNomes.append(person.nome)
-        listapontuacao.append(person.pontuacao)
+    listaNomes = [pontuacao.nome for pontuacao in pontuacoes]
+    listaPontuacao = [pontuacao.pontuacao for pontuacao in pontuacoes]
 
-    plt.barh(listaNomes, listapontuacao)
-    plt.savefig('portfolio/static/portfolio/images/graf.png', bbox_inches='tight')
+    plt.barh(listaNomes, listaPontuacao)
+    plt.ylabel("Pontuacao")
+    plt.autoscale()
+
+    fig = plt.gcf()
+    plt.close()
+
+    buf = io.BytesIO()
+    fig.savefig(buf, format='png')
+
+    buf.seek(0)
+    string = base64.b64encode(buf.read())
+    uri = urllib.parse.quote(string)
+
+    return uri
 
 
 def login_view(request):
