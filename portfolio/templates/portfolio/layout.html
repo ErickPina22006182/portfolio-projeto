@@ -36,7 +36,13 @@
       {% endblock main %}
   </main>
 
-  <footer> <p>ULHT, 2022</p> </footer>
+  <footer>
+      <section class="horaMain">
+          <div id="clock"></div>
+      </section>
+      <script src="{% static 'portfolio/javaScript/weather.js' %}"></script>
+      <p>ULHT, 2022</p>
+  </footer>
 
 </body>
 </html>

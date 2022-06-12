@@ -16,11 +16,7 @@
     </style>
     <form action="{% url 'portfolio:login' %}" method="POST">
         {% csrf_token %}
-        <div>
-            {% if message %}
-              <div> {{ message }} </div>
-            {% endif %}
-        </div>
+
 
 
         <div class="aaa">
@@ -29,6 +25,11 @@
                 <p>Username: <input type="text" name="username" id="id_username" autocomplete="off"></p>
                 <p>Password: <input type="password" name="password" id="id_password" autocomplete="off"></p>
                 <input type="submit" value="Entrar" id="submitLogin">
+                <div class="msgLogout">
+                    {% if message %}
+                      <div> {{ message }} </div>
+                    {% endif %}
+                </div>
             </div>
         </div>
     </form>

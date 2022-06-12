@@ -46,3 +46,11 @@
     transform: translate(-50%, -50%);
     text-align: center;
 }
+
+.weatherMain{
+    padding-left: 20px;
+    text-align: left;
+    position: absolute;
+    color: white;
+}
+

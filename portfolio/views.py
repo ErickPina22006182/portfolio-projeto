@@ -225,5 +225,6 @@ def logout_view(request):
     logout(request)
 
     return render(request, 'portfolio/login.html', {
-        'message': 'Foi desconetado.'
+        'message': 'Desconectado.'
     })
+

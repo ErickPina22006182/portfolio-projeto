@@ -62,3 +62,11 @@ footer {
   background: transparent;
   color: #c7c7c7;
 }
+
+
+.horaMain{
+    position: fixed;
+    padding-left: 20px;
+    left: 20px;
+    color: #c7c7c7;
+}
