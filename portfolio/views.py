@@ -10,7 +10,7 @@ from django.urls import reverse
 from matplotlib import pyplot as plt
 from urllib.parse import urlparse
 
-from .forms import PostForm, CadeiraForm, ProjetoForm
+from .forms import PostForm, CadeiraForm, ProjetoForm, PessoaForm
 from .models import Post, PontuacaoQuizz, Cadeira, Projeto
 
 matplotlib.use('Agg')
@@ -228,3 +228,12 @@ def logout_view(request):
         'message': 'Desconectado.'
     })
 
+
+def novo_professor(request):
+    form = PessoaForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect(reverse('portfolio:nova_cadeira'))
+
+    context = {'form': form}
+    return render(request, 'portfolio/novo_professor.html', context)

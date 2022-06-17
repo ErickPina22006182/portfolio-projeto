@@ -11,7 +11,6 @@ function diaSemana(dia, mes, ano){
     return semana[new Date(`${ano}/${mes}/${dia}`).getDay()];
 }
 
-
 var region = document.querySelector('.region');
 var dateFinal = document.querySelector('.date');
 var icon = document.querySelector('.icon');

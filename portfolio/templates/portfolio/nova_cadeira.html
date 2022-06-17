@@ -26,6 +26,10 @@
         {% csrf_token %}
         {{ form.as_p }}
 
+        <div class="button_new_professor">
+            <a href="{% url 'portfolio:novo_professor' %}" class="button_novo_professor">+ Adicionar Professor</a>
+        </div>
+
         <div class="botoesNovoPost">
             <a href="{% url 'portfolio:licenciatura' %}" class="button_cancel">Cancelar</a>
             <input type="submit" value="Gravar" class="button_save">

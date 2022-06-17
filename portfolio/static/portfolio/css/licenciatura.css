@@ -195,6 +195,34 @@
     font-size:large;
 }
 
+#id_linkedin{
+    width: 15em;
+    display: flex;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.4);
+    border: 2px solid white;
+    border-radius: 16px;
+    padding: 10px 1em 5px 1em;
+    text-align: left;
+    color: #ffffff;
+    margin-top: 0.5em;
+    font-size:large;
+}
+
+.button_novo_professor{
+    color: white;
+    text-decoration: none;
+}
+
+.button_new_professor{
+    color: white;
+    text-decoration: none;
+    left: 38.7%;
+    top: 75%;
+    font-size: 20px;
+    position: absolute;
+}
+
 .add_cadeira{
     text-align: center;
 }

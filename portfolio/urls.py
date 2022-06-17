@@ -38,4 +38,5 @@ urlpatterns = [
     path('novo_projeto', views.novo_projeto_view, name="novo_projeto"),
     path('edita_projeto/<int:projeto_id>', views.edita_projeto_view, name="edita_projeto"),
     path('apaga_projeto/<int:projeto_id>', views.apaga_projeto_view, name="apaga_projeto"),
+    path('novo_professor', views.novo_professor, name="novo_professor"),
 ]
