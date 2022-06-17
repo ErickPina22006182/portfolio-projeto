@@ -65,7 +65,7 @@
                     <p>{{ cadeira.descricao }}</p>
                 </div>
                 <div class="linkCadeira">
-                    <b><a href="{{ cadeira.linkedinPaginaCadeira }}" style="color: black" id="link_cadeira_id">Página da Cadeira</a></b>
+                    <a href="{{ cadeira.link }}" style="color: black" id="link_cadeira_id">Página da Cadeira</a>
                 </div>
                 <div class="editCadeira">
                     {% if request.user.is_authenticated %}
