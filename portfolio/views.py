@@ -20,14 +20,6 @@ def home_view(request):
     return render(request, 'portfolio/home.html')
 
 
-def apresentacao_view(request):
-    return render(request, 'portfolio/apresentacao.html')
-
-
-def competencias_view(request):
-    return render(request, 'portfolio/competencias.html')
-
-
 def formacao_view(request):
     return render(request, 'portfolio/formacao.html')
 
@@ -237,3 +229,7 @@ def novo_professor(request):
 
     context = {'form': form}
     return render(request, 'portfolio/novo_professor.html', context)
+
+
+def sobre_view(request):
+    return render(request, 'portfolio/video.html')

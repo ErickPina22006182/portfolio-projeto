@@ -20,9 +20,6 @@ app_name = 'portfolio'
 
 urlpatterns = [
     path('', views.home_view, name="home"),
-    path('apresentacao', views.apresentacao_view, name="apresentacao"),
-    path('competecias', views.competencias_view, name="competencias"),
-    path('formacao', views.formacao_view, name="formacao"),
     path('projetos', views.projetos_view, name="projetos"),
     path('licenciatura', views.licenciatura_view, name="licenciatura"),
     path('blog', views.blog_page_view, name="blog"),
@@ -39,4 +36,5 @@ urlpatterns = [
     path('edita_projeto/<int:projeto_id>', views.edita_projeto_view, name="edita_projeto"),
     path('apaga_projeto/<int:projeto_id>', views.apaga_projeto_view, name="apaga_projeto"),
     path('novo_professor', views.novo_professor, name="novo_professor"),
+    path('sobre', views.sobre_view, name="sobre"),
 ]
